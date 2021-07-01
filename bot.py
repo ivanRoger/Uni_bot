@@ -8,6 +8,8 @@ with open('setting.json', mode='r', encoding='utf8') as jfile:  # mode='r':é–‹å•
 
 
 
+
+
 bot = commands.Bot(command_prefix= '[')
 
 @bot.event
