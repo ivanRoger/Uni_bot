@@ -20,8 +20,6 @@ async def 圖片(ctx):
     await ctx.send(File= pic)
 
 
-
-
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel(int(jdata['Welcome_channel']))
