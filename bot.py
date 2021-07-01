@@ -13,6 +13,14 @@ bot = commands.Bot(command_prefix= '[')
 async def on_ready():
     print(">> Bot is online <<")
 
+
+@bot.command()
+async def 圖片(ctx):
+    pic = discord.File('D:\\Discord Bot\\Uni_bot\\pic\\2.jpg')  # 多增加一條反斜線用來轉譯
+    await ctx.send(File= pic)
+
+
+
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel(int(jdata['Welcome_channel']))
@@ -22,6 +30,7 @@ async def on_member_join(member):
 async def on_member_remove(member):
     channel = bot.get_channel(int(jdata['Leave_channel']))
     await channel.send(f'{member} leave!')
+
 
 @bot.command()
 async def ping(ctx):
