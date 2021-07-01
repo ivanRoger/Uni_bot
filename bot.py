@@ -7,6 +7,7 @@ with open('setting.json', mode='r', encoding='utf8') as jfile:  # mode='r':開�
 ## 若是有一長串的資料或重要訊息，都可以儲存在json檔裡面直接讀取，可讓程式碼更簡潔
 
 
+
 bot = commands.Bot(command_prefix= '[')
 
 @bot.event
