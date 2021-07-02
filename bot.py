@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import json
+import random
 
 with open('setting.json', mode='r', encoding='utf8') as jfile:  # mode='r':開啟檔案時,以讀取模式(r)開啟。(mode可加可不加)
     jdata = json.load(jfile)
@@ -14,10 +15,31 @@ async def on_ready():
     print(">> Bot is online <<")
 
 
+# 選取檔案中的圖片
 @bot.command()
 async def 圖片(ctx):
-    pic = discord.File('D:\\Discord Bot\\Uni_bot\\pic\\Adventure-Time.jpg')  # 多增加一條反斜線用來轉譯
+    pic = discord.File(jdata['pic'])  # 路徑中多增加一條反斜線用來轉譯
     await ctx.send(file= pic)
+
+# 隨機選取檔案中圖片
+@bot.command()
+async def 圖片1(ctx):
+    random_pic = random.choice(jdata['pic1'])
+    pic1 = discord.File(random_pic)
+    await ctx.send(file = pic1)
+
+# 隨機選取網路上圖片
+@bot.command()
+async def web(ctx):
+    random_pic_web = random.choice(jdata['url_pic'])
+    await ctx.send(random_pic_web)  # 只需要單純送出網址的字串就可以了
+
+
+@bot.command()
+async def 小芳(ctx):
+    await ctx.send('子杰生日快樂')
+        
+
 
 
 @bot.event
@@ -38,5 +60,5 @@ async def ping(ctx):
 
 
 
-bot.run(jdata['TOKEN'])  # 這樣就不必因為用bot.run("bot Token")而讓Token顯示出來
+bot.run(jdata['TOKEN'])  # 從json讀取，就不會因為用bot.run("bot Token")而讓Token顯示出來
 
