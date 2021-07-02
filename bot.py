@@ -17,7 +17,7 @@ async def on_ready():
 @bot.command()
 async def 圖片(ctx):
     pic = discord.File('D:\\Discord Bot\\Uni_bot\\pic\\Adventure-Time.jpg')  # 多增加一條反斜線用來轉譯
-    await ctx.send(File= pic)
+    await ctx.send(file= pic)
 
 
 @bot.event
