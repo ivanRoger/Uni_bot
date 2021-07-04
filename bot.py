@@ -33,13 +33,7 @@ async def 圖片1(ctx):
 async def web(ctx):
     random_pic_web = random.choice(jdata['url_pic'])
     await ctx.send(random_pic_web)  # 只需要單純送出網址的字串就可以了
-
-
-@bot.command()
-async def 小芳(ctx):
-    await ctx.send('子杰生日快樂')
-        
-
+    
 
 
 @bot.event
@@ -61,4 +55,6 @@ async def ping(ctx):
 
 
 bot.run(jdata['TOKEN'])  # 從json讀取，就不會因為用bot.run("bot Token")而讓Token顯示出來
+
+
 
